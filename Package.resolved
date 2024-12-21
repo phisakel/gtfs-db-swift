@@ -1,0 +1,33 @@
+{
+  "originHash" : "d21c129c4ed8fa4634fe7ff3550a3ae14e9eda6d1d7d01017d1e369a1fc23826",
+  "pins" : [
+    {
+      "identity" : "grdb.swift",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/groue/GRDB.swift.git",
+      "state" : {
+        "branch" : "GRDB7",
+        "revision" : "3ecb5c54553559217592d21a6d9841becb891b38"
+      }
+    },
+    {
+      "identity" : "gtfs",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/emma-k-alexandra/GTFS.git",
+      "state" : {
+        "revision" : "92197f4c41aba53889a2db1e2e9d6dbe4022a223",
+        "version" : "1.0.1"
+      }
+    },
+    {
+      "identity" : "swift-protobuf",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-protobuf.git",
+      "state" : {
+        "revision" : "ebc7251dd5b37f627c93698e4374084d98409633",
+        "version" : "1.28.2"
+      }
+    }
+  ],
+  "version" : 3
+}
