@@ -7,7 +7,7 @@ This library will allow you to query and update [GTFS](https://gtfs.org) data fr
 ### Swift Package Manager
 Add the following dependency to your `Package.swift` file:
 ```swift    
-dependencies: [.package(url: "https://github.com/phisakel/gtfs-db-swift.git", from: "0.2.0")]
+dependencies: [.package(url: "https://github.com/phisakel/gtfs-db-swift.git", from: "0.3.0")]
 ```
 and to the target:
 ```swift
