@@ -1,7 +1,6 @@
 import Dependencies
 import Foundation
 import GRDB
-import SQLiteData
 
 /// A library for working with GTFS (General Transit Feed Specification) data in SQLite.
 ///
