@@ -1,4 +1,4 @@
-// swift-tools-version: 6.0
+// swift-tools-version: 6.2
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
@@ -19,18 +19,32 @@ let package = Package(
             targets: ["GtfsDb"]),
     ],
      dependencies: [
-        .package(url: "https://github.com/groue/GRDB.swift.git", branch: "GRDB7"),
-        .package(url: "https://github.com/emma-k-alexandra/GTFS.git", .upToNextMajor(from: "1.0.1"))
+        .package(url: "https://github.com/groue/GRDB.swift.git", from: "7.9.0"),
+        .package(url: "https://github.com/emma-k-alexandra/GTFS.git", .upToNextMajor(from: "1.0.1")),
 	],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
             name: "GtfsDb",
-            dependencies: [.product(name: "GRDB", package: "grdb.swift"), "GTFS"]),
+            dependencies: [
+                .product(name: "GRDB", package: "grdb.swift"),
+                "GTFS"
+            ],
+            swiftSettings: [
+       		    .enableUpcomingFeature("InferIsolatedConformances"),
+        		.enableUpcomingFeature("NonisolatedNonsendingByDefault")
+ 
+            ]),
         .testTarget(
             name: "GtfsDbTests",
-            dependencies: ["GtfsDb"]
+            dependencies: [
+                "GtfsDb",
+            ],
+            swiftSettings: [
+       		    .enableUpcomingFeature("InferIsolatedConformances"),
+        		.enableUpcomingFeature("NonisolatedNonsendingByDefault")
+            ]
         ),
     ]
 )
