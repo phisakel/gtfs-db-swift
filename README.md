@@ -57,4 +57,17 @@ let database = try DatabaseQueue()
 let migrator = makeMigrator()
 try migrator.migrate(database)
 ```
+
+## Release Notes
+Publishing a GitHub release now automatically updates the release body with:
+- A short `Highlights` section (top commit summaries)
+- A full `What's Changed` list
+- A compare link to the previous tag
+
+The workflow is defined in `.github/workflows/release-notes.yml` and uses `scripts/generate-release-notes.sh`.
+
+You can also generate notes locally:
+```bash
+bash scripts/generate-release-notes.sh v0.4.0
+```
  

@@ -1,0 +1,30 @@
+name: Release Notes
+
+on:
+  release:
+    types: [published]
+
+permissions:
+  contents: write
+
+jobs:
+  update-release-notes:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate notes
+        env:
+          TAG: ${{ github.event.release.tag_name }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          chmod +x scripts/generate-release-notes.sh
+          scripts/generate-release-notes.sh "$TAG" > RELEASE_NOTES.md
+
+      - name: Update release body
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ github.event.release.tag_name }}
+        run: gh release edit "$TAG" --notes-file RELEASE_NOTES.md
