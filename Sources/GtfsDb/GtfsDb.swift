@@ -3,36 +3,6 @@ import Foundation
 import GRDB
 
 /// A library for working with GTFS (General Transit Feed Specification) data in SQLite.
-///
-/// This library provides:
-/// - Pre-configured GTFS database schema migrations
-/// - Type-safe access to GTFS data through the SQLiteData library
-/// - Support for all GTFS static specification tables
-///
-/// ## Getting Started
-///
-/// 1. Call `bootstrapDatabase()` in your app's initialization:
-///
-/// ```swift
-/// @main
-/// struct MyApp: App {
-///   init() {
-///     prepareDependencies {
-///       try! $0.bootstrapDatabase()
-///     }
-///   }
-/// }
-/// ```
-///
-/// 2. Access the database using the `@Dependency(\.defaultDatabase)` property wrapper:
-///
-/// ```swift
-/// @Dependency(\.defaultDatabase) var database
-///
-/// let stops = try await database.read { db in
-///   try Stop.fetchAll(db)
-/// }
-/// ```
 public struct GtfsDb {
   /// Creates a new GTFS database at the specified path with all required tables.
   ///
